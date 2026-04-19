@@ -3,7 +3,10 @@ package DAO;
 import Model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProdutoDAO {
 
@@ -38,6 +41,48 @@ public class ProdutoDAO {
             return true;
         } catch (SQLException e) {
             System.out.println("Erro ao alterar produto: " + e.getMessage());
+            return false;
+        } finally {
+            Conexao.desconectar(conn);
+        }
+    }
+
+    public List<Produto> consultar() {
+        String sql = "SELECT * FROM produto";
+        Connection conn = Conexao.conectar();
+        List<Produto> lista = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Produto produto = new Produto();
+                produto.setId(rs.getInt("id"));
+                produto.setNome(rs.getString("nome"));
+                produto.setPreco(rs.getDouble("preco"));
+                lista.add(produto);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao consultar produtos: " + e.getMessage());
+        } finally {
+            Conexao.desconectar(conn);
+        }
+
+        return lista;
+    }
+
+    public boolean excluir(int id) {
+        String sql = "DELETE FROM produto WHERE id = ?";
+        Connection conn = Conexao.conectar();
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Erro ao excluir produto: " + e.getMessage());
             return false;
         } finally {
             Conexao.desconectar(conn);

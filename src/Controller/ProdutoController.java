@@ -2,6 +2,7 @@ package Controller;
 
 import DAO.ProdutoDAO;
 import Model.Produto;
+import java.util.List;
 
 public class ProdutoController {
 
@@ -52,5 +53,17 @@ public class ProdutoController {
             System.out.println("Preço inválido.");
             return false;
         }
+    }
+
+    public List<Produto> consultar() {
+        return produtoDAO.consultar();
+    }
+
+    public boolean excluir(int id) {
+        if (id <= 0) {
+            System.out.println("ID inválido.");
+            return false;
+        }
+        return produtoDAO.excluir(id);
     }
 }
