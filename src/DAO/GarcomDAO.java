@@ -25,6 +25,7 @@ public class GarcomDAO {
                 garcom.setNome(rs.getString("nome"));
                 garcom.setLogin(rs.getString("login"));
                 garcom.setSenha(rs.getString("senha"));
+                garcom.setPerfil(rs.getString("perfil"));
             }
         } catch (SQLException e) {
             System.out.println("Erro ao autenticar: " + e.getMessage());

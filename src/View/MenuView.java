@@ -1,11 +1,12 @@
 package View;
 
+import Model.Garcom;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 
 public class MenuView extends JFrame {
 
-    public MenuView() {
+    public MenuView(Garcom garcom) {
         setTitle("Menu");
         setSize(400, 300);
         setLayout(null);
@@ -30,5 +31,12 @@ public class MenuView extends JFrame {
         btnSair.setBounds(125, 150, 120, 30);
         btnSair.addActionListener(e -> System.exit(0));
         add(btnSair);
+
+        // esconde botões se não for admin
+        if (!garcom.getPerfil().equals("admin")) {
+            btnProdutos.setVisible(false);
+            btnGarcons.setVisible(false);
+            btnMesas.setVisible(false);
+        }
     }
 }

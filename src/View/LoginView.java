@@ -77,7 +77,7 @@ public class LoginView extends JFrame {
                 );
 
                 if (garcom != null) {
-                    new MenuView().setVisible(true);
+                    new MenuView(garcom).setVisible(true);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");

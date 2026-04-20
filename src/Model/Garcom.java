@@ -6,14 +6,16 @@ public class Garcom {
     private String nome;
     private String login;
     private String senha;
+    private String perfil;
 
     public Garcom() {}
 
-    public Garcom(int id, String nome, String login, String senha) {
+    public Garcom(int id, String nome, String login, String senha, String perfil) {
         this.id = id;
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+        this.perfil = perfil;
     }
 
     public int getId() { return id; }
@@ -27,4 +29,7 @@ public class Garcom {
 
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
+
+    public String getPerfil() { return perfil; }
+    public void setPerfil(String perfil) { this.perfil = perfil; }
 }
