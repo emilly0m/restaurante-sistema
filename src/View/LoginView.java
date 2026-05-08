@@ -46,7 +46,7 @@ public class LoginView extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-        contentPane.setBackground(new java.awt.Color(173, 216, 230));
+        contentPane.setBackground(new java.awt.Color(255, 116, 108));
 
         JLabel lblUsuario = new JLabel("Usuário:");
         lblUsuario.setBounds(120, 40, 80, 20);

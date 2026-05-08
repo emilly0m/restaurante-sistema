@@ -39,7 +39,7 @@ CREATE TABLE Item_Comanda (
 );
 
 INSERT INTO garcom (nome, login, senha, perfil) VALUES ('Administrador', 'admin', 'admin123', 'admin');
-INSERT INTO Garcom (nome, login, senha, perfil) VALUES ('Bruno Alves', 'bruno', '1234', garcom);
+INSERT INTO Garcom (nome, login, senha, perfil) VALUES ('Bruno Alves', 'bruno', '1234', 'garcom');
 INSERT INTO Produto (nome, preco) VALUES ('Bife acebolado', 25.90);
 INSERT INTO Mesa (status) VALUES ('livre');
 INSERT INTO Comanda (mesa_id, garcom_id) VALUES (1, 1);
