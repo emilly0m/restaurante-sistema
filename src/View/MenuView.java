@@ -3,7 +3,6 @@ package View;
 import Model.Garcom;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
@@ -57,8 +56,7 @@ public class MenuView extends JFrame {
         });
 
         btnMesas.addActionListener(e -> {
-            // descomente quando MesaView estiver pronta:
-            // new MesaView().setVisible(true);
+            new MesaView().setVisible(true);
         });
 
         btnComandas.addActionListener(e -> {
