@@ -122,4 +122,31 @@ public class GarcomDAO {
             Conexao.desconectar(conn);
         }
     }
+
+    public List<Garcom> consultarGarcons() {
+        String sql = "SELECT * FROM garcom WHERE perfil = 'garcom'";
+        Connection conn = Conexao.conectar();
+        List<Garcom> lista = new ArrayList<>();
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Garcom garcom = new Garcom();
+                garcom.setId(rs.getInt("id"));
+                garcom.setNome(rs.getString("nome"));
+                garcom.setLogin(rs.getString("login"));
+                garcom.setSenha(rs.getString("senha"));
+                garcom.setPerfil(rs.getString("perfil"));
+                lista.add(garcom);
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro ao consultar garcons: " + e.getMessage());
+        } finally {
+            Conexao.desconectar(conn);
+        }
+
+        return lista;
+    }
 }

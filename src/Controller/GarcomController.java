@@ -66,4 +66,8 @@ public class GarcomController {
         }
         return garcomDAO.excluir(id);
     }
+
+    public List<Garcom> consultarGarcons() {
+        return garcomDAO.consultarGarcons();
+    }
 }

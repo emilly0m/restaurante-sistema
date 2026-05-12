@@ -53,8 +53,7 @@ public class MenuView extends JFrame {
         });
 
         btnGarcons.addActionListener(e -> {
-            // descomente quando GarcomView estiver pronta:
-            // new GarcomView().setVisible(true);
+            new GarcomView().setVisible(true);
         });
 
         btnMesas.addActionListener(e -> {
