@@ -61,7 +61,7 @@ public class MenuView extends JFrame {
 
         btnComandas.addActionListener(e -> {
             // descomente quando ComandaView estiver pronta:
-            // new ComandaView().setVisible(true);
+            new ComandaView(garcom).setVisible(true);
         });
 
         // esconde botões se não for admin
